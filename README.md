@@ -1,7 +1,7 @@
-# Ex.No.4b--MACHINE-LEARNING-MODEL-HEART-DISEASE-PREDICTION
-## AIM
+Ex.No.4b--MACHINE-LEARNING-MODEL-HEART-DISEASE-PREDICTION
+AIM
 To develop a Heart Disease Prediction model using machine learning classification algorithms and compare the performance of different models using suitable evaluation metrics.
-##  OBJECTIVES
+OBJECTIVES
 •	To understand machine learning classification. 
 •	To analyze a heart disease dataset. 
 •	To identify the input features and target variable. 
@@ -10,14 +10,14 @@ To develop a Heart Disease Prediction model using machine learning classificatio
 •	To train different classification models. 
 •	To predict whether a patient has heart disease. 
 •	To evaluate and compare the models. 
-## INTRODUCTION
+INTRODUCTION
 •	Machine Learning enables computers to learn patterns from data and make predictions. 
 •	Classification is a supervised learning technique used to predict categories or classes. 
 •	In this experiment, classification algorithms are used to predict whether a patient is likely to have heart disease. 
 •	The output generally contains two classes: 
 o	0 – No Heart Disease 
 o	1 – Heart Disease 
-## DATASET
+DATASET
 The dataset contains medical information about patients.
 Typical attributes include:
 Attribute	Description
@@ -32,14 +32,14 @@ Maximum Heart Rate	Maximum heart rate achieved
 Exercise Angina	Exercise-induced angina
 Oldpeak	ST depression value
 Target	Presence or absence of heart disease
-## TARGET VARIABLE
+TARGET VARIABLE
 •	Target is the dependent variable. 
 •	It indicates whether the patient has heart disease. 
 •	Usually: 
 0 → No Heart Disease
 1 → Heart Disease
 6. DATA PREPROCESSING
-### Steps
+Steps
 1.	Load the dataset. 
 2.	Display the first few records. 
 3.	Check dataset shape. 
@@ -50,7 +50,7 @@ Target	Presence or absence of heart disease
 8.	Encode categorical variables if required. 
 9.	Split the dataset into training and testing data. 
 10.	Apply feature scaling where required. 
-### Code
+Code
 import pandas as pd
 import numpy as np
 
@@ -65,7 +65,7 @@ X = df.drop("target", axis=1)
 y = df["target"]
 •	X → Patient characteristics. 
 •	y → Heart disease prediction. 
-###  TRAIN-TEST SPLIT
+TRAIN-TEST SPLIT
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -77,14 +77,14 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 •	80% → Training data 
 •	20% → Testing data 
-## FEATURE SCALING
+FEATURE SCALING
 from sklearn.preprocessing import StandardScaler
 
 scaler = StandardScaler()
 
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
-## MACHINE LEARNING MODELS
+MACHINE LEARNING MODELS
 The following models can be compared:
 1.	Logistic Regression 
 2.	K-Nearest Neighbors 
@@ -92,7 +92,7 @@ The following models can be compared:
 4.	Random Forest 
 5.	Support Vector Machine 
 6.	Gradient Boosting 
-## LOGISTIC REGRESSION
+LOGISTIC REGRESSION
 from sklearn.linear_model import LogisticRegression
 
 lr = LogisticRegression(max_iter=1000)
@@ -100,7 +100,7 @@ lr = LogisticRegression(max_iter=1000)
 lr.fit(X_train_scaled, y_train)
 
 y_pred_lr = lr.predict(X_test_scaled)
-##  K-NEAREST NEIGHBORS
+K-NEAREST NEIGHBORS
 from sklearn.neighbors import KNeighborsClassifier
 
 knn = KNeighborsClassifier(n_neighbors=5)
@@ -108,7 +108,7 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_scaled, y_train)
 
 y_pred_knn = knn.predict(X_test_scaled)
-## DECISION TREE
+DECISION TREE
 from sklearn.tree import DecisionTreeClassifier
 
 dt = DecisionTreeClassifier(
@@ -118,7 +118,7 @@ dt = DecisionTreeClassifier(
 dt.fit(X_train, y_train)
 
 y_pred_dt = dt.predict(X_test)
-## RANDOM FOREST
+RANDOM FOREST
 from sklearn.ensemble import RandomForestClassifier
 
 rf = RandomForestClassifier(
@@ -129,7 +129,7 @@ rf = RandomForestClassifier(
 rf.fit(X_train, y_train)
 
 y_pred_rf = rf.predict(X_test)
-## SUPPORT VECTOR MACHINE
+SUPPORT VECTOR MACHINE
 from sklearn.svm import SVC
 
 svm = SVC(kernel="rbf")
@@ -137,7 +137,7 @@ svm = SVC(kernel="rbf")
 svm.fit(X_train_scaled, y_train)
 
 y_pred_svm = svm.predict(X_test_scaled)
-## GRADIENT BOOSTING
+GRADIENT BOOSTING
 from sklearn.ensemble import GradientBoostingClassifier
 
 gb = GradientBoostingClassifier(
@@ -147,14 +147,14 @@ gb = GradientBoostingClassifier(
 gb.fit(X_train, y_train)
 
 y_pred_gb = gb.predict(X_test)
-## MODEL EVALUATION
+MODEL EVALUATION
 The models can be evaluated using:
 •	Accuracy 
 •	Precision 
 •	Recall 
 •	F1-score 
 •	Confusion Matrix 
-## Code
+Code
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -179,7 +179,7 @@ for name, prediction in models.items():
     print("Recall   :", recall_score(y_test, prediction))
     print("F1 Score :", f1_score(y_test, prediction))
     print()
-## MODEL COMPARISON
+MODEL COMPARISON
 <img width="591" height="191" alt="image" src="https://github.com/user-attachments/assets/6bb058f3-4231-475d-92d1-2e64233ac6a0" />
 Comparison
 •	Higher Accuracy → Better overall classification. 
@@ -187,7 +187,7 @@ Comparison
 •	Higher Recall → Better identification of patients with heart disease. 
 •	Higher F1-score → Better balance between precision and recall. 
 For a medical prediction task, recall is particularly important because missing a patient who actually has the condition can be more concerning than generating an extra positive prediction.
-## CONFUSION MATRIX
+CONFUSION MATRIX
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -207,7 +207,6 @@ plt.title("Confusion Matrix - Random Forest")
 
 plt.show()
 
-## CONCLUSION
+CONCLUSION
 Thus, machine learning classification models were successfully applied for heart disease prediction, and their performance was compared using standard classification evaluation metrics.
-
-
+https://colab.research.google.com/drive/1fpS9LpfksGJNBrN-VzcnGqAphW7onHpW#scrollTo=ShmXEaf4bUkr
